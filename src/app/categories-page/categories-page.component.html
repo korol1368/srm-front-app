@@ -1,0 +1,27 @@
+<div class="page-title">
+  <h4>Категории</h4>
+  <button routerLink="/categories/new" class="waves-effect waves-light btn grey darken-1">Добавить категорию</button>
+</div>
+
+<div class="row" *ngIf="categories$ | async as categories; else loader">
+  <div class="col s12">
+    <div *ngIf="categories.length !== 0; else emptyState" class="collection">
+      <a *ngFor="let category of categories" [routerLink]="['/categories', category._id]" class="collection-item">
+        {{ category.name }}</a
+      >
+    </div>
+    <ng-template #emptyState>
+      <div class="empty-state">
+        <img src="/assets/img/Checklist-rafiki.svg" alt="empty state" class="empty-state__image" />
+        <h2 class="empty-state__title">No category</h2>
+        <div class="empty-state__description">
+          <p>You don`t have one category.</p>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>

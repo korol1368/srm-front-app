@@ -1,0 +1,11 @@
+.empty-state {
+  text-align: center;
+}
+
+.empty-state img {
+  max-width: 350px;
+}
+
+.empty-state__title {
+  font-size: 30px;
+}
